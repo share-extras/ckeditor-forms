@@ -1,0 +1,11 @@
+<alfresco-config>
+   	<config>
+		<forms>
+	        <dependencies>
+	         <!-- Include some extra assets --> 
+				<js src="/modules/editors/ckeditor/ckeditor.js" />
+				<js src="/components/editors/ckeditor/ckeditorloader.js" />
+	        </dependencies>
+ 		</forms>
+	</config>
+</alfresco-config>

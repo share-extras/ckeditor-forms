@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<template-instance>
+   <template-type>org/alfresco/ckeditor-listimages</template-type>
+   <components>
+      <component>
+         <region-id>listimages</region-id>
+         <url>/components/ckeditor/listimages</url>
+      </component>
+   </components>
+
+</template-instance>

@@ -1,0 +1,5 @@
+<webscript>
+  <shortname>listimagesckeditor</shortname>
+  <description>Configuration dialog for WebView dashlet</description>
+  <url>/components/ckeditor/listimages</url>
+</webscript>

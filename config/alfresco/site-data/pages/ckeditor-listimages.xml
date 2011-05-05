@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<page>
+   <title>CKEditor ListImages</title>
+   <title-id>page.ckeditorlistimages.title</title-id>
+   <description>ListImages to insert into CKEditor</description>
+   <description-id>page.ckeditorlistimages.description</description-id>
+   <template-instance>ckeditor-listimages</template-instance>
+   <authentication>user</authentication>
+</page>
