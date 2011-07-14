@@ -17,7 +17,16 @@
  */
  
 // Get the all image files in the doclibrary for this site
-var url = "/slingshot/doclib/images/site/" + page.url.args.site + "/documentLibrary?max=500";
+//var url = "/slingshot/doclib/images/site/" + page.url.args.site + "/documentLibrary?max=500";
+var url,site,doclib;
+site=page.url.args.site;
+if(site){
+	doclib=false;
+}else{
+	doclib=true;
+	site="";
+}
+var url="/slingshot/search?site="+site+"&term=&tag=&maxResults=251&sort=&query="+encodeURI('{"prop_cm_name":"","prop_mimetype":"image/*","datatype":"cm:content"}');
 var json = remote.call(url);
 if (json.status == 200)
 {

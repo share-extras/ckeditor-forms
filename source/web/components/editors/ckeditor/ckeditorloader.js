@@ -437,18 +437,15 @@
     	  			});
     	  
     	  		/**
-    	  		 * These events to handel update is from
+    	  		 * These events to handle update is from
     	  		 * http://alfonsoml.blogspot.com/2011/03/onchange-event-for-ckeditor.html
     	  		 * Slightly changed to fit this purpose
     	  		 */
     	  		editor.timer=0
 
-    	  		editor.on( 'saveSnapshot',  function(e) { CKEditor_updateElement(e); });
-    	  		editor.on( 'afterUndo', function(e) { CKEditor_updateElement(e);  } );
-    	  		editor.on( 'afterRedo', function(e) { CKEditor_updateElement(e);  } );
+    	  		editor.on( 'saveSnapshot', function(e) { CKEditor_updateElement(e); });
+    	  		editor.on( 'afterUndoImage', function(e) { CKEditor_updateElement(e);  } );
     	  		editor.on( 'blur', function(e) { CKEditor_updateElement(e);  } );
-    	  		editor.on( 'onChange', function(e) { CKEditor_updateElement(e);  } );
-    	  		editor.on( 'onKeyUp', function(e) { CKEditor_updateElement(e);  } );
 
     	  		editor.on( 'afterCommandExec', function(e)
     	  		{
@@ -456,26 +453,7 @@
     	  		    	CKEditor_updateElement(e);
     	  		    }	
     	  		} );
-    	  		editor.on( 'contentDom', function(e)
-    	  	             {
-    	  	                 editor.document.on( 'keydown', function( event )
-    	  	                     {
-    	  	                         // Do not capture CTRL hotkeys.
-    	  	                         if ( !e.data.$.ctrlKey && !e.data.$.metaKey )
-    	  	                        	CKEditor_updateElement(e);
-    	  	                     });
-    	  	 
-    	  	                     // Firefox OK
-    	  	                 editor.document.on( 'drop', function()
-    	  	                     {
-    	  	                	 	CKEditor_updateElement(e);
-    	  	                     });
-    	  	                     // IE OK
-    	  	                 editor.document.getBody().on( 'drop', function()
-    	  	                     {
-    	  	                	 	CKEditor_updateElement(e);
-    	  	                     });
-    	  	             });
+    	  		editor.on( 'key', function(e) { CKEditor_updateElement(e);  } );
 
       }
    });
@@ -483,7 +461,7 @@
 
 function CKEditor_updateElement(e){
     //Use timer function so it not fire to often
-  //Alfresco.logger.debug("UPDATE called by "+e.name);
+	//Alfresco.logger.debug("UPDATE called by "+e.name);
   
   	if (e.editor.timer){
   		//Alfresco.logger.debug("UPDATE called, timer, exiting");
