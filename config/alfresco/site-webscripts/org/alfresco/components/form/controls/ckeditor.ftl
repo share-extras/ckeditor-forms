@@ -25,7 +25,7 @@
          <#else>
          nodeRef: "",
          </#if>
-         settingsfile: "${settingsfile}",
+         <#if field.control.params.settingsfile??>settingsfile: "${field.control.params.settingsfile}",</#if>
          <#if field.control.params.plainMimeTypes??>plainMimeTypes: "${field.control.params.plainMimeTypes}",</#if>
          <#if field.control.params.richMimeTypes??>richMimeTypes: "${field.control.params.richMimeTypes}",</#if>
          <#if field.control.params.imageMimeTypes??>imageMimeTypes: "${field.control.params.imageMimeTypes}",</#if>

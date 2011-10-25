@@ -1,6 +1,6 @@
 CKEDITOR.editorConfig = function( config )
 {
-		config.filebrowserImageBrowseUrl='/share/page/ckeditor-listimages?site='+Alfresco.constants.SITE;
+		config.filebrowserImageBrowseUrl = Alfresco.constants.URL_CONTEXT + 'page/ckeditor-listimages?site=' + Alfresco.constants.SITE;
 		config.toolbar=[
 		        ['Source','Preview'],
 		        ['Cut','Copy','Paste','PasteText','PasteFromWord','-','Scayt'],

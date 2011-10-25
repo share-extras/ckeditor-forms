@@ -17,7 +17,7 @@
       <div class="images">
          <div class="item">
             <div class="thumbnail">
-               <a href="${url.context}/proxy/alfresco/api/node/content/${nodeRefUrl}/${image.name?url}" rel="lightbox" title="<#if image.title??>${image.title?html}<#else>${image.name?html}</#if> - ${msg("text.modified-by", image.modifiedBy)} ${image.modifiedOn}"><img src="${url.context}/proxy/alfresco/api/node/${nodeRefUrl}/content/thumbnails/doclib?c=force"/></a>
+               <a href="${url.context}/proxy/alfresco/api/node/content/${nodeRefUrl}/${image.name?url}" onclick="showLightbox(this);return false;" title="<#if image.title??>${image.title?html}<#else>${image.name?html}</#if> - ${msg("text.modified-by", image.modifiedBy)} ${image.modifiedOn}"><img src="${url.context}/proxy/alfresco/api/node/${nodeRefUrl}/content/thumbnails/doclib?c=force"/></a>              
             </div>
             <div class="details">
             <a onclick="window.opener.CKEDITOR.tools.callFunction( ${CKEditorFuncNum}, '${url.context}/proxy/alfresco/api/node/content/${nodeRefUrl}/${image.name?url}');window.close();" href="#">${image.name}</a>
