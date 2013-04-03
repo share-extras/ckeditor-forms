@@ -92,6 +92,14 @@
          mimeType: null,
          
          /**
+          * The identified mimetype of the content/property
+          * 
+          * @property contentMimetype
+          * @type string
+          */
+         contentMimetype: null,
+         
+         /**
           * Comma separated list of mime types that will be shown
           * in a textarea
           * 
@@ -161,12 +169,12 @@
                   YAHOO.lang.dump(this.options.editorParameters));
          }
                   
-         // get the mimetype of the content
-         var contentMimetype = this._determineMimeType();
+         // get the mimetype of the content         
+		this.contentMimetype = this._determineMimeType();
             
-         if (contentMimetype !== null)
+         if (this.contentMimetype !== null)
          {
-            if (this._isRichMimeType(contentMimetype))
+            if (this._isRichMimeType(this.contentMimetype))
             {
                if (this.options.formMode === "create")
                {
@@ -176,6 +184,11 @@
                      this._renderEditor();
                      //Alfresco.logger.debug("Editor rendered");
                   }
+               }
+               else if (this.options.fieldName !== "cm:content")
+               {
+                     this._renderEditor();
+                     Dom.get(this.id).value = this.options.currentValue;
                }
                else
                {
@@ -200,12 +213,12 @@
                   });
                }
             }
-            else if (this._isPlainMimeType(contentMimetype) || this.options.forceEditor)
+            else if (this._isPlainMimeType(this.contentMimetype) || this.options.forceEditor)
             {
                // populate the textarea with the content
                this._populateContent();
             }
-            else if (this._isImageMimeType(contentMimetype))
+            else if (this._isImageMimeType(this.contentMimetype))
             {
                this._hideField();
                

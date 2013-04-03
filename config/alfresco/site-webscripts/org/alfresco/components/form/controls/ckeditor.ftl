@@ -31,7 +31,14 @@
          <#if field.control.params.imageMimeTypes??>imageMimeTypes: "${field.control.params.imageMimeTypes}",</#if>
          <#if field.control.params.forceEditor??>forceEditor: ${field.control.params.forceEditor},</#if>
          <#if field.control.params.forceContent??>forceContent: ${field.control.params.forceContent},</#if>
+         fieldName: "${field.configName?js_string}",
+         <#if field.configName=="cm:content">
          mimeType: "${(context.properties.mimeType!"")?js_string}"
+         <#else>
+         <#if field.control.params.propertyMimetype??>mimeType: "${field.control.params.propertyMimetype?js_string}"
+         <#else>mimeType: "text/html"
+         </#if>
+         </#if>
          
       }).setMessages(
          ${messages}
@@ -45,6 +52,6 @@
              <#if field.description??>title="${field.description?html}"</#if>
              <#if field.control.params.styleClass??>class="${field.control.params.styleClass}"</#if>
              <#if field.control.params.style??>style="${field.control.params.style}"</#if>
-             <#if field.disabled && !(field.control.params.forceEditable?? && field.control.params.forceEditable == "true")>disabled="true"</#if>><#if jsDisabled>${field.content?html}</#if></textarea>
+             <#if field.disabled && !(field.control.params.forceEditable?? && field.control.params.forceEditable == "true")>disabled="true"</#if>><#if field.configName=="cm:content"><#if jsDisabled>${field.content?html}</#if><#else><#if jsDisabled>${field.value?html}</#if></#if></textarea>
 </div>
 </#if>
