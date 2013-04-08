@@ -1,3 +1,5 @@
+<#if field.name?substring(0,4) == 'prop'>
+
 <#if field.control.params.rows??><#assign rows=field.control.params.rows><#else><#assign rows=8></#if>
 <#if field.control.params.columns??><#assign columns=field.control.params.columns><#else><#assign columns=60></#if>
 <#if field.control.params.settingsfile??><#assign settingsfile=field.control.params.settingsfile><#else><#assign settingsfile="components/editors/ckeditor/config.js"></#if>
@@ -54,4 +56,6 @@
              <#if field.control.params.style??>style="${field.control.params.style}"</#if>
              <#if field.disabled && !(field.control.params.forceEditable?? && field.control.params.forceEditable == "true")>disabled="true"</#if>><#if field.configName=="cm:content"><#if jsDisabled>${field.content?html}</#if><#else><#if jsDisabled>${field.value?html}</#if></#if></textarea>
 </div>
+</#if>
+
 </#if>
